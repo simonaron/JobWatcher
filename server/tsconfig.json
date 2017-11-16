@@ -1,0 +1,24 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "target": "es5",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outDir": "dist"
+    },
+    "files": [
+        "./src/index.ts"
+    ],
+    "include": [
+        "*.ts",
+        "node_modules/@types/*"
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+} 

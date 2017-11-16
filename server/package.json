@@ -1,0 +1,26 @@
+{
+  "name": "jobwatcher",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD hello all =======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonaron/JobWatcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonaron/JobWatcher/issues"
+  },
+  "homepage": "https://github.com/simonaron/JobWatcher#readme",
+  "devDependencies": {
+    "@types/express": "^4.0.39",
+    "@types/node": "^8.0.53"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
