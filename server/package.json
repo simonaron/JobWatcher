@@ -18,9 +18,11 @@
   "homepage": "https://github.com/simonaron/JobWatcher#readme",
   "devDependencies": {
     "@types/express": "^4.0.39",
-    "@types/node": "^8.0.53"
+    "@types/node": "^8.0.53",
+    "@types/request": "^2.0.8"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "request": "^2.83.0"
   }
 }
