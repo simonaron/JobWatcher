@@ -1,7 +1,7 @@
-
 import * as Express from 'express';
 import { HttpHelper } from './helpers/HttpHelper';
 let config = require('../../config/user-config.json');
+console.log(config)
 // let App = Express();
 
 // App.get("/valami/:id", (req: Express.Request, res: Express.Response) => {
@@ -20,5 +20,6 @@ let kiscica2 = await HttpHelper.get(
 
 console.log(kiscica1,'####################################################', kiscica2);
 }
+
 
 main();
