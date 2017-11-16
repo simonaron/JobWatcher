@@ -1,4 +1,5 @@
 import * as request from 'request';
+let config = require('../../../config/user-config.json');
 
 export interface HttpError {
     url: string,
@@ -40,7 +41,7 @@ export class HttpHelper {
         );
     }
 
-    static async get(url: string, headers?: any, from?: any) {
+    static async get(url: string,headers?: any, from?: any) {
         return (new Promise((
                 resolve: (response: any) => any, 
                 reject: (error: HttpError) => void
@@ -66,7 +67,7 @@ export class HttpHelper {
                             message: error
                         });
                     }
-                });
+                }).auth(config.username, config.password, false);;
             }).catch((error: HttpError) => {
                 throw error;
             })
