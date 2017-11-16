@@ -1,6 +1,6 @@
 import * as request from 'request';
 let config = require('../../../config/user-config.json');
-
+ 
 export interface HttpError {
     url: string,
     statusCode: number,
@@ -24,7 +24,7 @@ export class HttpHelper {
                     } else if(response) {
                         reject({
                             url: url,
-                            statusCode: response.statusCode, 
+                            statusCode: response.statusCode,
                             message: error
                         });
                     } else {
