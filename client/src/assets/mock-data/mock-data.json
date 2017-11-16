@@ -1,3 +1,25 @@
 [
-  {"res": "data"}
+  {"res": "data",
+  "jobs":[
+    {
+      "name":"jobname1", 
+      "builds":[
+        {"number":101, "status":"success"},
+        {"number":102, "status":"failed"},
+        {"number":103, "status":"success"},
+        {"number":104, "status":"failed"}
+      ]
+    },
+    {
+      "name":"jobname2", 
+      "builds":[
+        {"number":45, "status":"success"},
+        {"number":46, "status":"success"},
+        {"number":47, "status":"success"},
+        {"number":48, "status":"failed"},
+        {"number":49, "status":"failed"}
+      ]
+    }
+  ]
+  }
 ]

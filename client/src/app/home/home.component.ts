@@ -2,10 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-
-import { AppState } from '../app.service';
-import { Title } from './title';
-import { XLargeDirective } from './x-large';
+let mock = require('../../assets/mock-data/mock-data.json');
 
 @Component({
   selector: 'home',  
@@ -13,8 +10,10 @@ import { XLargeDirective } from './x-large';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
+  jobs = mock[0].jobs;
   constructor() {}
 
   public ngOnInit() {
+    console.log(this.jobs)
   }
 }
