@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterializeModule } from "angular2-materialize";
 import {
   NgModule,
   ApplicationRef
@@ -28,9 +29,6 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 
-//import '../styles/styles.scss';
-//import '../styles/headings.css';
-
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -56,6 +54,7 @@ type StoreType = {
    * Import Angular's modules.
    */
   imports: [
+    MaterializeModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
