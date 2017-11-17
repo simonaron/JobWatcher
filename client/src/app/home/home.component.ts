@@ -18,8 +18,12 @@ export class HomeComponent implements OnInit {
     public http: Http
   ) {
 
-    this.http.get('http://localhost:3001/jobs/SYSF_SFTF_DEV').subscribe((data) => { this.jobs.push(JSON.parse(data['_body'])[0]); console.log(this.jobs)})
-    this.http.get('http://localhost:3001/jobs/SYSF_SFTF_PARAM').subscribe((data) => { this.jobs.push(JSON.parse(data['_body'])[0])})
+    this.http.get('http://localhost:3001/jobs/SYSF_SFTF_DEV')
+      .subscribe((data) => { 
+        this.jobs.push(JSON.parse(data['_body'])[0]);
+      })
+    this.http.get('http://localhost:3001/jobs/SYSF_SFTF_PARAM')
+      .subscribe((data) => { this.jobs.push(JSON.parse(data['_body'])[0])})
   }
 
   public ngOnInit() {
