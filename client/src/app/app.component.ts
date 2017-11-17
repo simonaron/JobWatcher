@@ -6,6 +6,9 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
+import {
+  Http
+} from '@angular/http';
 import { AppState } from './app.service';
 
 /**
@@ -38,7 +41,9 @@ import { AppState } from './app.service';
 export class AppComponent implements OnInit {
   constructor(
     public appState: AppState
-  ) {}
+  ) {
+
+  }
 
   public ngOnInit() {
   }

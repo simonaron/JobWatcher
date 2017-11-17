@@ -35,11 +35,18 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
             }
         ).reverse().slice(0,5);
         
+        var start = new Date().getTime();
+        let incidents = await OpenAlmHelper.GetJobArtifacts(job.name);
+        // Remember when we finished
+        var end = new Date().getTime();
+
+        // Now calculate and output the difference    
+        console.log(end - start);
+
         for(let build of job.builds) {
             //console.log(await OpenAlmHelper.GetJobArtifacts(job.name))
-
-            build.incidents = (await OpenAlmHelper.GetJobArtifacts(job.name)).filter((incident) => {
-                console.log(incident);
+            build.incidents = incidents.filter((incident) => {
+                //console.log(incident);
                 return (incident.buildNumbers.find((buildNumber: string) => { return buildNumber==build.number}) !== undefined)
             });
 
@@ -50,7 +57,7 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
     res.send(JSON.stringify(jobs));
 });
 
-App.listen(3000, () => {
-    console.log("listening on port 3000")
+App.listen(3001, () => {
+    console.log("listening on port 3001")
 });
 

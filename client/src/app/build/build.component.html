@@ -7,13 +7,13 @@
     <a class="btn-floating btn-small yellow has-incident" [ngClass]="{'hidden':  build.incidents.length==0, 'display': build.incidents.length!=0}"></a>
     <a 
         class="btn-floating btn-large" 
-        [ngClass]="{'red': build.status=='failed', 'green':  build.status=='success'}"
+        [ngClass]="{'red': build.status=='FAILURE', 'green':  build.status=='SUCCESS'}"
         style=" position: relative; left: -10px"
     >
       <i class="large">{{build.number}}</i>
     </a>
-    <ul style="position:relative; z-index:10; left: 10px" [ngClass]="{'hidden':  showMenu==false, 'display': showMenu==true}">
-      <li *ngFor="let incident of build.incidents"><a class="btn-floating yellow"><i class="material-icons">insert_chart</i></a><span> {{(incident.title).split(' ').join('&nbsp;')}}</span></li>
+    <ul style="position:relative; z-index:10; left: 45px" [ngClass]="{'hidden':  showMenu==false, 'display': showMenu==true}">
+      <li *ngFor="let incident of build.incidents"><a class="btn-floating yellow"><i class="material-icons">insert_chart</i></a><span> {{(incident.title).split(' ').join('&nbsp;').split('-').join('&#8209;')}}</span></li>
       <li><a class="btn-floating blue"><i class="material-icons">format_quote</i></a><span> asdasdasasdasdasdasdasdasdasdasdasdasdasdasdad</span></li>      
     </ul>
 </div>
