@@ -1,12 +1,17 @@
-<div class="fixed-action-btn vertical" style="position:relative; top:20px; left: 0px; z-index:0">
-    <a class="btn-floating btn-small yellow" style="width:15px; height:15px; position:relative; top:-25px; left:0px"></a>
-    <a class="btn-floating btn-large" [ngClass]="{'red': build.status=='failed', 'green':  build.status=='success'}">
+<div style="position:relative; top:20px; left: 0px"
+  (mouseenter)="show()"
+  (mouseleave)="hide()"
+  [ngClass]="{'full':  showMenu==true, 'simple': showMenu==false}"
+>
+    <a class="btn-floating btn-small yellow has-incident" [ngClass]="{'hidden':  build.incidents.length==0, 'display': build.incidents.length!=0}"></a>
+    <a 
+        class="btn-floating btn-large" 
+        [ngClass]="{'red': build.status=='failed', 'green':  build.status=='success'}"
+    >
       <i class="large">{{build.number}}</i>
     </a>
-    <ul style="position:relative; top:30px; left: -20px; height:40px; z-index:10">
-      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i>cicaasdasd</a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    <ul style="position:relative; z-index:10; left: 18px" [ngClass]="{'hidden':  showMenu==false, 'display': showMenu==true}">
+      <li *ngFor="let incident of build.incidents"><a class="btn-floating yellow"><i class="material-icons">insert_chart</i></a><span> {{(incident.title).split(' ').join('&nbsp;')}}</span></li>
+      <li><a class="btn-floating blue"><i class="material-icons">format_quote</i></a><span> asdasdasasdasdasdasdasdasdasdasdasdasdasdasdad</span></li>      
     </ul>
 </div>

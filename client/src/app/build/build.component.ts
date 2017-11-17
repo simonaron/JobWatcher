@@ -11,6 +11,13 @@ import {
 })
 export class BuildComponent implements OnInit {
   @Input() build;
+  showMenu=false;
+  show() {
+    this.showMenu=true;
+  }
+  hide() {
+    this.showMenu=false;
+  }
   constructor() {}
 
   public ngOnInit() {

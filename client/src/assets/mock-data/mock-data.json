@@ -4,20 +4,20 @@
     {
       "name":"jobname1", 
       "builds":[
-        {"number":101, "status":"success"},
-        {"number":102, "status":"failed"},
-        {"number":103, "status":"success"},
-        {"number":104, "status":"failed"}
+        {"number":101, "status":"success", "incidents":[]},
+        {"number":102, "status":"failed", "incidents":[{"title":"incident 1: asdfasdfasdfa"}]},
+        {"number":103, "status":"success", "incidents":[]},
+        {"number":104, "status":"failed", "incidents":[]}
       ]
     },
     {
       "name":"jobname2", 
       "builds":[
-        {"number":45, "status":"success"},
-        {"number":46, "status":"success"},
-        {"number":47, "status":"success"},
-        {"number":48, "status":"failed"},
-        {"number":49, "status":"failed"}
+        {"number":45, "status":"success", "incidents":[]},
+        {"number":46, "status":"success", "incidents":[]},
+        {"number":47, "status":"success", "incidents":[]},
+        {"number":48, "status":"failed", "incidents":[{"title":"incident 1: asdfasdfasdfa"},{"title":"incident 2: adfasdfa"}]},
+        {"number":49, "status":"failed", "incidents":[]}
       ]
     }
   ]
