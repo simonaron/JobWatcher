@@ -1,10 +1,10 @@
-interface IJob {
+export interface IJob {
     name: string;
     builds: IBuild[];
     url: string;
 }
 
-interface IBuild {
+export interface IBuild {
     number: number;
     status: string;
     incidents: IIncident[];
@@ -12,20 +12,20 @@ interface IBuild {
     url: string;
 }
 
-interface IIncident {
+export interface IIncident {
     title: string;
     artifactId: number;
     url: string;
     author: IAuthor;
 }
 
-interface IChange{
+export interface IChange{
     commitMessage: string;
     url: string;
     author: IAuthor;
 }
 
-interface IAuthor{
+export interface IAuthor{
     name: string;
     email: string;
 }

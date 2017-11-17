@@ -15,9 +15,9 @@ export class OpenAlmHelper {
         return result;
     }*/
 
-    static async GetJobArtifacts(jobName : string) 
+    static async GetJobArtifacts(jobName : string) : Promise<any[]>
     {
-        var artifactData : string[][] = new Array();
+        var artifactData : any[] = new Array();
 
         let result = await HttpHelper.get(
             config.urls.openalm + 'trackers/' +incidentTrackerId + '/artifacts?limit=' + incidentVolume + '&offset=0&order=desc');
@@ -57,13 +57,14 @@ export class OpenAlmHelper {
 
     static ProcessArtifact(data : any) 
     {
-        var artifactData : string[] = new Array();
+        var artifactData : any = {};
 
-        artifactData[0] = data.title;
-        artifactData[1] = data.status;
-        artifactData[2] = data.submitted_on;
-        artifactData[3] = data.submitted_by_user.real_name;
-        artifactData[5] = 'https://openalm.lmera.ericsson.se/plugins/tracker/?aid=' + data.id;
+        artifactData.title = data.title;
+        artifactData.status = data.status;
+        artifactData.submitted_on = data.submitted_on;
+        artifactData.submitter= data.submitted_by_user.real_name;
+        artifactData.buildNumbers = OpenAlmHelper.GetBuildNumbers(artifactData.title);
+        artifactData.url = 'https://openalm.lmera.ericsson.se/plugins/tracker/?aid=' + data.id;
 
         return artifactData;
     }
@@ -98,8 +99,22 @@ export class OpenAlmHelper {
         }
 
         var numbers = buildNumbers.split("||");
+        var numbers2 : number[] = new Array();
 
-        return numbers;
+        if (numbers.length == 2)
+        {
+            var num1 : number = parseInt(numbers[0]);
+            var num2 : number = parseInt(numbers[1]);
+
+            for (var i : number = num1; i <= num2; i++)
+            {
+                numbers2.push(i);
+            }
+
+            return numbers2;
+        } else {
+            return numbers;
+        }
     }
 
     static IsNumber (character : string) 

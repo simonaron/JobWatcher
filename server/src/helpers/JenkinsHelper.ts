@@ -9,7 +9,7 @@ export class JenkinsHelper {
         let data : any  = {};
         let builddata : any = {};
         let b = await HttpHelper.get(
-            config.urls.jenkins + 'job/' + jobname + '/api/json?tree=builds[number,result,number]');
+            config.urls.jenkins + 'job/' + jobname + '/api/json?tree=builds[number,result]');
         for (let elem in b.builds){
             builddata[b.builds[elem].number] = { "result": b.builds[elem].result };
         }
