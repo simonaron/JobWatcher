@@ -8,7 +8,8 @@ var cors = require('cors');
 
 let App = Express();
 
-App.use(cors())
+App.use(cors());
+
 App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => {
     let titles = req.params.titles.split(',');
 
@@ -50,7 +51,14 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
                 return (incident.buildNumbers.find((buildNumber: string) => { return buildNumber==build.number}) !== undefined)
             });
 
-            //console.log(build);
+            let changes = await JenkinsHelper.getChangesForBuild(job.name, build.number);
+
+            build.changes = changes;
+
+            /*build.changes = (await JenkinsHelper.getChangesForBuild(job.name, build.number)).filter((change : any) => {
+                console.log(change);
+                return (change.hash.find((buildNumber: string) => {return buildNumber==build.number}) !== undefined)
+            });*/
         }
     }
     //console.log(jobs);
@@ -60,4 +68,5 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
 App.listen(3001, () => {
     console.log("listening on port 3001")
 });
+
 

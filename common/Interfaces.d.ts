@@ -21,8 +21,9 @@ export interface IIncident {
 
 export interface IChange{
     commitMessage: string;
-    url: string;
-    author: IAuthor;
+    id : number;
+    author: string;
+    email: IAuthor;
 }
 
 export interface IAuthor{
