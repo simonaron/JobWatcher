@@ -4,6 +4,7 @@ import { JenkinsHelper } from './helpers/JenkinsHelper';
 import { OpenAlmHelper } from './helpers/OpenAlmHelper';
 import { IBuild, IAuthor, IChange, IIncident, IJob} from '../../common/Interfaces';
 let config = require('../../config/user-config.json');
+var cors = require('cors');
 
 let App = Express();
 
@@ -57,3 +58,5 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
 App.listen(3000, () => {
     console.log("listening on port 3000")
 });
+
+
