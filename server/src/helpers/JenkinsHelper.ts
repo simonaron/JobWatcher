@@ -33,6 +33,9 @@ export class JenkinsHelper {
             commits.push(commit);
         }
         data.commits = commits;
+
+        let changeid = await HttpHelper.get('https://gerrit.ericsson.se:29418/changes/?q=daf2f61a58706b7221866e0641e4b0464193690e');
+        console.log(changeid)//["envMap"]["GERRIT_CHANGE_URL"]);
                  
         return data;
     } 
