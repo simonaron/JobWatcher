@@ -1,10 +1,16 @@
 <div class="row">
   <div class="col s3">
-    <h3>{{job.name}}</h3>
+    <h4 style="text-align: right; margin:30px 0px">{{job.name}}</h4>
   </div>
   <div class="col s9">
     <div class="row">
+      <div class="col s1" style="text-align: center;">
+        <a class="btn-floating btn-small waves-effect waves-light yellow" style="height: 40px; position:relative; top:28px; left: 0px"><i class="material-icons">arrow_back</i></a>
+      </div>
       <build class="col s2" *ngFor="let build of job.builds" [build]="build" style="height: 40px;"></build>
+      <div class="col s1" style="text-align: center;">
+        <a class="btn-floating btn-small waves-effect waves-light yellow" style="height: 40px; position:relative; top:28px; left: 0px"><i class="material-icons">arrow_forward</i></a>
+      </div>
     </div>
   </div>
 </div>
