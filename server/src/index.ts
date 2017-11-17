@@ -11,7 +11,6 @@ let App = Express();
 App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => {
     let titles = req.params.titles.split(',');
 
-    
     let jobs = await titles.map((title: string) => {
                 return {
                     name: title,
@@ -49,14 +48,14 @@ App.get("/jobs/:titles", async (req: Express.Request, res: Express.Response) => 
                 console.log(change);
                 return (change.hash.find((buildNumber: string) => {return buildNumber==build.number}) !== undefined)
             });*/
+            }
         }
-    }
     //console.log(jobs);
-    res.send(JSON.stringify(jobs));
-});
+        res.send(JSON.stringify(jobs));
+    });
 
-App.listen(3000, () => {
-    console.log("listening on port 3000")
-});
+    App.listen(3000, () => {
+        console.log("listening on port 3000")
+    });
 
 
