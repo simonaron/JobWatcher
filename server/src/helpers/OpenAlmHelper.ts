@@ -30,7 +30,7 @@ export class OpenAlmHelper {
         {
             currentTitle = result[_i].title;
 
-            if (currentTitle.indexOf(jobName) >= 0) 
+            if (currentTitle.indexOf(jobName) >= 0)
             {
                 artifactData.push(OpenAlmHelper.ProcessArtifact(result[_i]));
                 //console.log(OpenAlmHelper.ProcessArtifact(result[_i]));
@@ -52,6 +52,8 @@ export class OpenAlmHelper {
         let result = await HttpHelper.get(
             config.urls.openalm + 'artifacts/' + id);
         
+        console.log (result);
+
         return OpenAlmHelper.ProcessArtifact(result);
     }
 
